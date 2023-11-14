@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <!-- Link the external CSS file -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <form id="loginForm">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            <button type="button" onclick="submitForm()">Login</button>
+        </form>
+
+        <div id="loginResult" class="success"></div>
+    </div>
+
+    <script>
+        function submitForm() {
+            // Get the form data
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+
+            // Send the form data to the server
+            fetch("login", {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ username, password }),
+            })
+                .then(response => response.text())
+                .then(result => {
+                    // Display the result with appropriate class
+                    const loginResultElement = document.getElementById("loginResult");
+                    loginResultElement.innerHTML = result.includes("successful") ? "Login Successful" : "Login Failed";
+                    loginResultElement.className = result.includes("successful") ? "success" : "error";
+                })
+                .catch(error => {
+                    console.log('Error:', error);
+                });
+        }
+    </script>
+</body>
+
+</html>
