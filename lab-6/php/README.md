@@ -2,7 +2,11 @@
 Infonet Security Fundamentals
 # Lab 6: Create the simplest HTTP server with PHP
 
-### Step 1: Simplest HTML Form
+### Step 1: Simplest HTML Form (Login)
+
+#### 1.1 Create HTML File
+
+Create a file named `index.html` and add the following content:
 
 ```html
 <!-- index.html -->
@@ -20,8 +24,8 @@ Infonet Security Fundamentals
     <div>
         <!-- Simple login form with email and password fields -->
         <form method="post">
-            <label for="username">Email:</label>
-            <input type="text" id="username" name="username" required>
+            <label for="email">Email:</label>
+            <input type="text" id="email" name="email" required>
             <label for="password">Password:</label>
             <input type="password" id="password" name="password" required>
             <button type="submit">Login</button>
@@ -31,10 +35,23 @@ Infonet Security Fundamentals
 
 </html>
 ```
+This HTML file creates a basic login form with email and password fields. The form uses the post method to send data to the server when the user submits the form.
 
-### Step 2: Add PHP
+#### 1.2 View in Web Browser
 
-```html
+Use browser's "Open File" or "Open..." option to open the index.html file.
+
+<img src="Aserts/LoginForm.png" alt="Login Form">
+
+Now, you can view the simple HTML page.
+
+### Step 2: Create The First PHP Page
+
+#### 2.1 Create PHP File
+
+Create a file named `index.php` and add the following content:
+
+```php
 <!-- index.php -->
 
 <!DOCTYPE html>
@@ -47,11 +64,11 @@ Infonet Security Fundamentals
 </head>
 
 <body>
-    <div>
-        <!-- Login form with PHP validation -->
+    <div class="container">
+        <!-- Login form  -->
         <form method="post">
-            <label for="username">Email:</label>
-            <input type="text" id="username" name="username" required>
+            <label for="email">Email:</label>
+            <input type="text" id="email" name="email" required>
             <label for="password">Password:</label>
             <input type="password" id="password" name="password" required>
             <button type="submit">Login</button>
@@ -61,7 +78,7 @@ Infonet Security Fundamentals
         // Check if the form is submitted
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Retrieve the user's email from the form
-            $email = $_POST["username"];
+            $email = $_POST["email"];
             $password = $_POST["password"];
 
             // Basic validation
@@ -82,8 +99,17 @@ Infonet Security Fundamentals
 
 </html>
 ```
+This PHP file checks the submitted email and password, and based on the credentials, it displays a success or error message. The result is dynamically added to the HTML using PHP.
 
-### Step 3: Add JavaScript
+<img src="Aserts/LoginForm2.png" alt="Login Form 2">
+
+Now, you can interact with the form by entering values into the email and password fields.
+
+### Step 3: Add JavaScript Client-side Validation
+
+#### 3.1 Update the PHP File
+
+Update the PHP File with the following content:
 
 ```html
 <!-- index.php -->
@@ -98,7 +124,7 @@ Infonet Security Fundamentals
     <script>
         // JavaScript function for client-side validation
         function validateForm() {
-            var email = document.getElementById("username").value;
+            var email = document.getElementById("email").value;
             var password = document.getElementById("password").value;
 
             var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -116,8 +142,8 @@ Infonet Security Fundamentals
     <div>
         <!-- Login form with PHP validation and JavaScript client-side validation -->
         <form method="post" onsubmit="return validateForm()">
-            <label for="username">Email:</label>
-            <input type="text" id="username" name="username" required>
+            <label for="email">Email:</label>
+            <input type="text" id="email" name="email" required>
             <label for="password">Password:</label>
             <input type="password" id="password" name="password" required>
             <button type="submit">Login</button>
@@ -127,11 +153,11 @@ Infonet Security Fundamentals
         // Check if the form is submitted
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Retrieve the user's email from the form
-            $email = $_POST["username"];
+            $email = $_POST["email"];
             $password = $_POST["password"];
 
             // Basic validation
-            if ($email === "admin@example.com" && $password === "admin") {
+            if ($email === "admin@isf.com" && $password === "admin") {
                 $result = "Login successful!";
                 $class = "success";
             } else {
@@ -148,8 +174,17 @@ Infonet Security Fundamentals
 
 </html>
 ```
+In this step, JavaScript is added for client-side validation. The validateForm function checks if the entered email is in a valid format using a regular expression. If the email is invalid, it displays an alert and prevents the form from being submitted. This provides an additional layer of validation on the client side.
 
-### Step 4: Add CSS
+<img src="Aserts/LoginForm3.png" alt="Login Form 3">
+
+It prevents the form from submitting if the email is invalid.
+
+### Step 4: Add CSS to Enhance the Visual Appearance 
+
+#### 4.1 Create CSS File
+
+Create CSS file named styles.css and add following content:
 
 ```css
 /* styles.css */
@@ -207,4 +242,18 @@ button:hover {
 }
 ```
 
-This completes the step-by-step development with comments and explanations for each part of the code.
+#### 4.2 Link the CSS File in index.php
+
+```html
+<!-- index.php -->
+...
+    <title>Login Page</title>
+    <!-- Add the following line to link the CSS file -->
+    <link rel="stylesheet" href="styles.css"> 
+    <script>
+        ...
+    </script>
+...
+```
+
+<img src="Aserts/LoginForm4.png" alt="Login Form 4">
