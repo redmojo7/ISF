@@ -2,6 +2,22 @@
 Infonet Security Fundamentals
 # Lab 6: Create the simplest HTTP server with PHP
 
+### Prerequisites
+
+#### Installing PHP on Ubuntu
+
+Enter the following command into a terminal to install PHP
+
+```bash
+sudo apt-get update
+sudo apt-get install php
+```
+Verify the installation with
+
+```bash
+php -v
+```
+
 ### Step 1: Simplest HTML Form (Login)
 
 #### 1.1 Create HTML File
@@ -99,7 +115,15 @@ Create a file named `index.php` and add the following content:
 
 </html>
 ```
+
 This PHP file checks the submitted email and password, and based on the credentials, it displays a success or error message. The result is dynamically added to the HTML using PHP.
+
+Run the PHP Development Server with command:
+```bash
+php -S localhost:8080
+```
+
+Open your web browser and navigate to [http://localhost:8080/](http://localhost:8080/).
 
 <img src="../Aserts/LoginForm2.png" alt="Login Form 2">
 
@@ -257,3 +281,8 @@ button:hover {
 ```
 
 <img src="../Aserts/LoginForm4.png" alt="Login Form 4">
+
+
+### Reference:
+
+- https://kinsta.com/blog/install-php/#how-to-install-php-on-windows
