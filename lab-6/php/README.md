@@ -57,7 +57,7 @@ This HTML file creates a basic login form with email and password fields. The fo
 
 Use browser's "Open File" or "Open..." option to open the index.html file.
 
-<img src="../Aserts/LoginForm.png" alt="Login Form">
+<img src="../Assert/LoginForm.png" alt="Login Form">
 
 Now, you can view the simple HTML page.
 
@@ -119,13 +119,14 @@ Create a file named `index.php` and add the following content:
 This PHP file checks the submitted email and password, and based on the credentials, it displays a success or error message. The result is dynamically added to the HTML using PHP.
 
 Run the PHP Development Server with command:
+
 ```bash
 php -S localhost:8080
 ```
 
 Open your web browser and navigate to [http://localhost:8080/](http://localhost:8080/).
 
-<img src="../Aserts/LoginForm2.png" alt="Login Form 2">
+<img src="../Assert/LoginForm2.png" alt="Login Form 2">
 
 Now, you can interact with the form by entering values into the email and password fields.
 
@@ -200,7 +201,7 @@ Update the PHP File with the following content:
 ```
 In this step, JavaScript is added for client-side validation. The validateForm function checks if the entered email is in a valid format using a regular expression. If the email is invalid, it displays an alert and prevents the form from being submitted. This provides an additional layer of validation on the client side.
 
-<img src="../Aserts/LoginForm3.png" alt="Login Form 3">
+<img src="../Assert/LoginForm3.png" alt="Login Form 3">
 
 It prevents the form from submitting if the email is invalid.
 
@@ -280,7 +281,7 @@ button:hover {
 ...
 ```
 
-<img src="../Aserts/LoginForm4.png" alt="Login Form 4">
+<img src="../Assert/LoginForm4.png" alt="Login Form 4">
 
 
 ### Reference:
