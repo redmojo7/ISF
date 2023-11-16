@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Name</title>
+</head>
+ 
+<body>
+ 
+    <div>
+        <label for="name">Enter your name:</label>
+        <input type="text" id="name" required>
+        <button onclick="submitName()">Submit</button>
+    </div>
+ 
+    <div id="submittedNames">
+        <!-- Display submitted names here -->
+    </div>
+ 
+    <script>
+        function submitName() {
+            // Get the input value
+            var nameInput = document.getElementById("name");
+            var name = nameInput.value;
+ 
+            // Create a new row for the submitted name
+            var newRow = document.createElement("div");
+            newRow.textContent = "Submitted Name: " + name;
+ 
+            // Append the new row to the container
+            var container = document.getElementById("submittedNames");
+            container.appendChild(newRow);
+ 
+            // Clear the input field
+            nameInput.value = "";
+        }
+    </script>
+ 
+</body>
+ 
+</html>
